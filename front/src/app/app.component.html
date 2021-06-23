@@ -1,0 +1,32 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Project</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button routerLink="course" class="m-1 btn btn-light btn-outline-primary" Button>Course</button>
+        </li>
+        <li class="nav-item">
+          <button routerLink="prof" class="m-1 btn btn-light btn-outline-primary" Button>Profile</button>
+        </li>
+        <li class="nav-item">
+          <button routerLink="tasks" class="m-1 btn btn-light btn-outline-primary" Button>Tasks</button>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button routerLink="login" class="m-1 btn btn-light btn-outline-primary" Button>Sign In</button>
+        <button routerLink="registration" class="m-1 btn btn-light btn-outline-primary" Button>Sign Up</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<router-outlet></router-outlet>
+
+</div>

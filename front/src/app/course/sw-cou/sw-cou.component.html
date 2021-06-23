@@ -1,0 +1,51 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addClick()" data-backdrop="static" data-keyboard="false">
+    Add Course
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-cou [cou]="cou" *ngIf="ActiveAddEditCouComp"></app-add-edit-cou>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                <div class="d-flex flex-row">
+                    <input [(ngModel)]="CourseIDFilter" class="form-control" (keyup)="Filter()" placeholder="Filter">
+                </div>
+                Course ID</th>
+            <th>
+                <div class="d-flex flex-row">
+                    <input [(ngModel)]="CourseNameFilter" class="form-control" (keyup)="Filter()" placeholder="Filter">
+                </div>
+                Course Name</th>
+            <th>Course Description</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of CourseList">
+            <td>{{dataItem.CourseID}}</td>
+            <td>{{dataItem.CourseName}}</td>
+            <td>{{dataItem.CourseDescription}}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false">Edit</button>
+                <button type="button" class="btn btn-light mr-1" (click)="deleteClick(dataItem)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

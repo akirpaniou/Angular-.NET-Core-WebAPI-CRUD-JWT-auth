@@ -1,0 +1,22 @@
+<form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input class="form-control" formControlName="FullName" placeholder="Enter full name">
+    </div>
+    <div class="form-group">
+        <label>User Name</label>
+        <input class="form-control" formControlName="UserName" placeholder="Enter user name" required>
+        <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">Required field!</label>
+      </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" formControlName="Email" placeholder="Enter email" [pattern]="emailPattern">
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email adress.</label>
+      </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+    </div>
+      <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!service.formModel.valid">Sign Up</button>
+  </form>

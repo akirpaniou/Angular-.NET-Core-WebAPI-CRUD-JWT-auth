@@ -1,0 +1,12 @@
+<form #form='ngForm' autocomplete="off" (submit)="onSubmit(form)">
+    <div class="mb-3">
+      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
+      <label class="form-label">User Name</label>
+      <input #UserName="ngModel" name="UserName" [(ngModel)]="formModel.UserName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" class="form-control" type="password" req>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+  </form>
